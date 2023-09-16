@@ -9,6 +9,7 @@ radius = 8.0
 
 [node name="Obstacle" instance=ExtResource("1_o0xe1")]
 script = ExtResource("2_5ovi4")
+damage = 2
 
 [node name="Sprite2D" parent="." index="0"]
 modulate = Color(1, 0, 1, 1)

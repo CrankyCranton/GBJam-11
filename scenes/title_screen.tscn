@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnkrumispeaw5"]
+
+[ext_resource type="Theme" uid="uid://08b538gi4l1t" path="res://ui/theme.theme" id="1_q7gig"]
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="2_ewtvy"]
+[ext_resource type="LabelSettings" uid="uid://c52euoq5c832g" path="res://ui/title.tres" id="3_vf5ie"]
+[ext_resource type="FontFile" uid="uid://cx2obcutkacar" path="res://ui/MooLahLah-Regular.ttf" id="4_4lklu"]
+[ext_resource type="LabelSettings" uid="uid://eamhp1nbdieo" path="res://ui/small_text.tres" id="5_srjuq"]
+
+[sub_resource type="FontVariation" id="FontVariation_dm1ki"]
+base_font = ExtResource("4_4lklu")
+spacing_glyph = 2
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_q7gig")
+script = ExtResource("2_ewtvy")
+
+[node name="Title" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "The Title"
+label_settings = ExtResource("3_vf5ie")
+horizontal_alignment = 1
+
+[node name="BetterTitle" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_dm1ki")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center][rainbow]4 Colors!![/rainbow][/center]"
+fit_content = true
+
+[node name="StartMessage" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -3.0
+offset_right = 20.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "-Press Start-"
+horizontal_alignment = 1
+
+[node name="Info" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Keyboard Controls: Arrows = DPad, C = A, X = B, Enter = Start, Tab = Select."
+label_settings = ExtResource("5_srjuq")
+autowrap_mode = 1

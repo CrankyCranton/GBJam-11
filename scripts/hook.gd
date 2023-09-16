@@ -51,15 +51,13 @@ func launch() -> void:
 
 	var launch_duration := distance / launch_speed
 	create_tween().tween_property(chain, "size:y", distance, launch_duration)
-	var hook_tween := create_tween().tween_property(hook_sprite, "position:y", -distance,
-			launch_duration)
-	await hook_tween.finished
+	await create_tween().tween_property(hook_sprite, "position:y", -distance, launch_duration
+			).finished
 	anim_hooked.emit()
 
 	create_tween().tween_property(chain, "size:y", 4, launch_duration)
-	var draw_tween := get_tree().create_tween()
-	draw_tween.tween_property(hook_sprite, "position:y", 0, launch_duration)
-	await draw_tween.finished
+	await get_tree().create_tween().tween_property(hook_sprite, "position:y", 0, launch_duration
+			).finished
 
 	hauling = false
 
@@ -71,6 +69,6 @@ func haul_object(object: FlyingObject) -> void:
 		object.collected = true
 	await anim_hooked
 	if is_instance_valid(object):
-		var tween := create_tween().tween_property(object, "global_position", global_position, haul_time)
-		await tween.finished
+		await create_tween().tween_property(object, "global_position", global_position, haul_time
+				).finished
 		object_shape.set_deferred("disabled", false)

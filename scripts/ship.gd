@@ -6,7 +6,7 @@ const INITIAL_MOVE_TIME := 0.15
 
 @export var move_time := INITIAL_MOVE_TIME
 @export var move_increment := 16.0
-@export var tween_factor := 0.25
+@export var tween_factor := 0.5
 @export var cool_down := 0.25
 
 var moving := false

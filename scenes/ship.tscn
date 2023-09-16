@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://s7vthiul18vr"]
 
 [ext_resource type="Texture2D" uid="uid://bu1681cs4ejsq" path="res://assets/spaceship/spaceship_normal_1.png" id="1_5owak"]
-[ext_resource type="Script" path="res://scenes/ship.gd" id="2_wndx4"]
+[ext_resource type="Script" path="res://scripts/ship.gd" id="2_5c5cx"]
 
 [node name="Ship" type="Sprite2D"]
 texture = ExtResource("1_5owak")
-script = ExtResource("2_wndx4")
+script = ExtResource("2_5c5cx")
 
 [node name="Barrel" type="Marker2D" parent="."]
 position = Vector2(0, -8)

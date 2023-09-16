@@ -1,8 +1,10 @@
 class_name Level extends Node2D
 
 
+const LOSE_SCREEN := preload("res://scenes/lose_screen.tscn")
+
 @export var speed_factor_increment := 0.01
-@onready var move_speed := 32.0
+@export var move_speed := 32.0
 
 var speed_factor := 1.0
 # Could be used in scoring
@@ -36,5 +38,7 @@ func move(delta: float) -> void:
 
 
 func _on_mothership_died(score: int) -> void:
-	print("You collected %s trash." % score)
+	var lose_screen := LOSE_SCREEN.instantiate()
+	lose_screen.final_score = score
+	add_child(lose_screen)
 	get_tree().paused = true
