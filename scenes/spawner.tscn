@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://6h7rqv642saw"]
+
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="1_irgwo"]
+
+[node name="Spawner" type="Node2D" node_paths=PackedStringArray("add_to")]
+script = ExtResource("1_irgwo")
+add_to = NodePath("")
+
+[node name="MinPos" type="Marker2D" parent="."]
+position = Vector2(8, -8)
+gizmo_extents = 4.0
+
+[node name="MaxPos" type="Marker2D" parent="."]
+position = Vector2(152, -8)
+gizmo_extents = 4.0

@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjfniwtodyhoi"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_coqks"]
+[ext_resource type="Texture2D" uid="uid://ch2k0x7tpgko3" path="res://icon.svg" id="2_tncch"]
+[ext_resource type="PackedScene" uid="uid://6h7rqv642saw" path="res://scenes/spawner.tscn" id="3_423aw"]
+[ext_resource type="PackedScene" uid="uid://bm6q176rb0p0q" path="res://scenes/trash.tscn" id="4_iijjm"]
+[ext_resource type="PackedScene" uid="uid://cer5fnwmxtbty" path="res://scenes/mothership.tscn" id="5_eogm8"]
+[ext_resource type="PackedScene" uid="uid://caa4vnyqh106v" path="res://scenes/obstacle.tscn" id="5_ykg2h"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_coqks")
+
+[node name="Parallax" type="ParallaxBackground" parent="."]
+scroll_base_offset = Vector2(0, 440)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax"]
+motion_mirroring = Vector2(0, 144)
+
+[node name="Background" type="Sprite2D" parent="Parallax/ParallaxLayer"]
+modulate = Color(0.1, 0.1, 0.1, 1)
+position = Vector2(80, 72)
+scale = Vector2(1.25, 1.125)
+texture = ExtResource("2_tncch")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 128)
+
+[node name="Spawner" parent="." node_paths=PackedStringArray("add_to") instance=ExtResource("3_423aw")]
+spawn_list = {
+ExtResource("4_iijjm"): 2,
+ExtResource("5_ykg2h"): 1
+}
+add_to = NodePath("../Objects")
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Mothership" parent="." instance=ExtResource("5_eogm8")]
+
+[connection signal="died" from="Mothership" to="." method="_on_mothership_died"]
