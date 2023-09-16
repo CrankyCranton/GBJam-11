@@ -70,6 +70,7 @@ func haul_object(object: FlyingObject) -> void:
 	if object is Trash:
 		object.collected = true
 	await anim_hooked
-	var tween := create_tween().tween_property(object, "global_position", global_position, haul_time)
-	await tween.finished
-	object_shape.set_deferred("disabled", false)
+	if is_instance_valid(object):
+		var tween := create_tween().tween_property(object, "global_position", global_position, haul_time)
+		await tween.finished
+		object_shape.set_deferred("disabled", false)

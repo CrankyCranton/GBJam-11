@@ -16,3 +16,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	rotate(torque * delta)
+
+
+func deal_damage(mothership: Mothership) -> void:
+	if collected:
+		mothership.trash += value
+		mothership.hp += health_value
+	else:
+		mothership.hp -= damage
