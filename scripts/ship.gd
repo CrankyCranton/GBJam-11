@@ -14,6 +14,7 @@ var screen_width: float = ProjectSettings.get_setting("display/window/size/viewp
 var cooling := false
 
 @onready var barrel: Marker2D = $Barrel
+@onready var shoot_sound: AudioStreamPlayer2D = %ShootSound
 
 
 func _input(event: InputEvent) -> void:
@@ -43,3 +44,4 @@ func shoot() -> void:
 	var bullet := BULLET.instantiate()
 	add_child(bullet)
 	bullet.global_position = barrel.global_position
+	shoot_sound.play()

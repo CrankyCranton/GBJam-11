@@ -23,4 +23,4 @@ func deal_damage(mothership: Mothership) -> void:
 		mothership.trash += value
 		mothership.hp += health_value
 	else:
-		mothership.hp -= damage
+		super(mothership)

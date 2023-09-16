@@ -1,7 +1,11 @@
 class_name FlyingObject extends Area2D
 
 
+const DAMAGE_SOUND := preload("res://assets/sfx/hit_hurt.wav")
+
 @export var damage := 1
+
+@onready var damage_sound: AudioStreamPlayer2D = $DamageSound
 
 
 func _on_area_entered(area: Area2D) -> void:
@@ -15,3 +19,9 @@ func _on_area_entered(area: Area2D) -> void:
 
 func deal_damage(mothership: Mothership) -> void:
 	mothership.hp -= damage
+	play_sound()
+
+
+func play_sound() -> void:
+	damage_sound.reparent(get_parent())
+	damage_sound.play()
