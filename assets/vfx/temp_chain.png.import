@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4hcmpqfkoabd"
-path="res://.godot/imported/temp_chain.png-0800b05be11b090fda7958afd39339e5.ctex"
+path="res://.godot/imported/temp_chain.png-40cbcf4b17c90cd4542f9fe8b5ab6f3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/VFX/temp_chain.png"
-dest_files=["res://.godot/imported/temp_chain.png-0800b05be11b090fda7958afd39339e5.ctex"]
+source_file="res://assets/vfx/temp_chain.png"
+dest_files=["res://.godot/imported/temp_chain.png-40cbcf4b17c90cd4542f9fe8b5ab6f3a.ctex"]
 
 [params]
 
