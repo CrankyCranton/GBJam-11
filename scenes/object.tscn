@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2bssajhv58qp"]
+[gd_scene load_steps=3 format=3 uid="uid://d2bssajhv58qp"]
 
 [ext_resource type="Script" path="res://scripts/object.gd" id="1_hmwfu"]
+[ext_resource type="AudioStream" uid="uid://b530gl0ipdc4a" path="res://assets/sfx/hit_hurt.wav" id="2_unn5o"]
 
 [node name="Object" type="Area2D"]
 script = ExtResource("1_hmwfu")
@@ -12,5 +13,9 @@ script = ExtResource("1_hmwfu")
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="CollisionShape2D"]
 position = Vector2(4.17233e-07, 0)
 scale = Vector2(0.8, 0.8)
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_unn5o")
+max_distance = 512.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

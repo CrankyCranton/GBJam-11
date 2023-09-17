@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjfniwtodyhoi"]
+[gd_scene load_steps=8 format=3 uid="uid://cjfniwtodyhoi"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_coqks"]
 [ext_resource type="Texture2D" uid="uid://ch2k0x7tpgko3" path="res://icon.svg" id="2_tncch"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bm6q176rb0p0q" path="res://scenes/trash.tscn" id="4_iijjm"]
 [ext_resource type="PackedScene" uid="uid://cer5fnwmxtbty" path="res://scenes/mothership.tscn" id="5_eogm8"]
 [ext_resource type="PackedScene" uid="uid://caa4vnyqh106v" path="res://scenes/obstacle.tscn" id="5_ykg2h"]
+[ext_resource type="PackedScene" uid="uid://s7vthiul18vr" path="res://scenes/ship.tscn" id="7_kg5qc"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_coqks")
@@ -34,5 +35,8 @@ add_to = NodePath("../Objects")
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="Mothership" parent="." instance=ExtResource("5_eogm8")]
+
+[node name="Ship" parent="." instance=ExtResource("7_kg5qc")]
+position = Vector2(88, 88)
 
 [connection signal="died" from="Mothership" to="." method="_on_mothership_died"]

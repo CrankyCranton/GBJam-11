@@ -9,6 +9,8 @@
 size = Vector2(160, 28)
 
 [node name="Mothership" type="Area2D"]
+collision_mask = 0
+monitoring = false
 script = ExtResource("1_6sqar")
 max_hp = 10
 
@@ -31,5 +33,3 @@ shape = SubResource("RectangleShape2D_1j35e")
 
 [node name="Hook" parent="." instance=ExtResource("4_ukl0a")]
 position = Vector2(80, 120)
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]

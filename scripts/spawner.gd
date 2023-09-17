@@ -4,24 +4,33 @@ class_name Spawner extends Node2D
 # Format: {<scene>: <probability>}
 @export var spawn_list := {}
 @export var add_to: Node
-# Should go by distance instead of time.
-@export var max_spawn_time := 1.0
+@export var min_spawn_dinstance := 32.0
+@export var max_spawn_distance := 64.0
+
+var current_spawn_distance := 0.0
+var last_spawn: Node2D = null
+var spawn_start_pos := Vector2()
 
 @onready var min_pos: Marker2D = $MinPos
 @onready var max_pos: Marker2D = $MaxPos
 
 
-func _ready() -> void:
-	while true:
-		await get_tree().create_timer(max_spawn_time).timeout
+func _process(_delta: float) -> void:
+	if (true if last_spawn == null or not is_instance_valid(last_spawn) else
+			spawn_start_pos.distance_to(last_spawn.global_position) >= current_spawn_distance):
 		spawn()
 
 
 func spawn() -> void:
+	current_spawn_distance = randf_range(min_spawn_dinstance, max_spawn_distance)
 	var scene := pick_spawn()
 	var instance := scene.instantiate()
 	add_to.add_child(instance)
-	instance.global_position = min_pos.global_position.lerp(max_pos.global_position, randf())
+	var raw_pos := min_pos.global_position.lerp(max_pos.global_position, randf())
+	var cell_size := Vector2.ONE * 16.0
+	instance.global_position = (raw_pos - cell_size / 2.0).snapped(cell_size) + cell_size / 2.0
+	last_spawn = instance
+	spawn_start_pos = instance.global_position
 
 
 func pick_spawn() -> PackedScene:

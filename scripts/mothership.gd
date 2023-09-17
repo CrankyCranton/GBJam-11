@@ -28,12 +28,3 @@ var trash := 0
 
 func die() -> void:
 	died.emit(trash)
-
-
-func _on_area_entered(area: Area2D) -> void:
-	if area is FlyingObject:
-		if area is Trash and area.collected:
-			trash += area.value
-			hp += area.health_value
-		else:
-			hp -= area.damage

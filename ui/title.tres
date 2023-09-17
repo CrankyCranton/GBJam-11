@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c52euoq5c832g"]
+
+[ext_resource type="FontFile" uid="uid://dka18dto7u1vp" path="res://ui/Righteous-Regular.ttf" id="1_4x0ny"]
+
+[resource]
+font = ExtResource("1_4x0ny")
+font_size = 32
