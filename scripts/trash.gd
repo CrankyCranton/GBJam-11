@@ -39,6 +39,8 @@ func deal_damage(mothership: Mothership) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if collected and area is Bullet:
-		return
-	super(area)
+	if collected:
+		if area is Mothership:
+			destroy(area)
+	else:
+		super(area)
