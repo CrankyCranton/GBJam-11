@@ -8,6 +8,7 @@ const PASSWORD := "dSdai@?kZQ(@<Lyk%VBd*mD3SdhQ)RFw5BKj<bE+&muav~x%K~MR:KGjp!y].
 
 # score will tally up to this
 var final_score := 0
+var final_time := 0
 var accepting_input := false
 
 @onready var score_counter: Label = %ScoreCounter
@@ -20,6 +21,12 @@ var accepting_input := false
 	set(value):
 		record = value
 		record_counter.text = str(record)
+@onready var time_counter: Label = %TimeCounter
+@onready var time := 0:
+	set(value):
+		time = value
+		@warning_ignore("integer_division")
+		time_counter.text = "%s:%s:%s" % [time / 3600, time % 3600 / 60, time % 60]
 
 
 func _input(event: InputEvent) -> void:
@@ -60,7 +67,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		return
 
 	create_tween().tween_property(self, "score", final_score, tally_speed)
-	await create_tween().tween_property(self, "record", load_record(), tally_speed).finished
+	create_tween().tween_property(self, "record", load_record(), tally_speed)
+	await create_tween().tween_property(self, "time", final_time, tally_speed).finished
 	if final_score > record:
 		save_record(final_score)
 

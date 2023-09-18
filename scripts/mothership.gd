@@ -1,9 +1,7 @@
 class_name Mothership extends Area2D
 
 
-signal died(score: int)
-
-var trash := 0
+signal died(score: int, time: int)
 
 # max_hp's & hp's setter functions are redundant
 @export var max_hp := 1:
@@ -13,6 +11,9 @@ var trash := 0
 		if not is_node_ready():
 			await ready
 		health_bar.max_value = max_hp
+
+var trash := 0
+var start_time := Time.get_ticks_msec()
 
 @onready var hp := max_hp:
 	set(value):
@@ -27,4 +28,5 @@ var trash := 0
 
 
 func die() -> void:
-	died.emit(trash)
+	@warning_ignore("integer_division")
+	died.emit(trash, (Time.get_ticks_msec() - start_time) / 1000)

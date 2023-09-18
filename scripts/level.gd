@@ -43,8 +43,9 @@ func move(delta: float) -> void:
 	ship.move_time = Ship.INITIAL_MOVE_TIME / speed_factor
 
 
-func _on_mothership_died(score: int) -> void:
+func _on_mothership_died(score: int, time: int) -> void:
 	var lose_screen := LOSE_SCREEN.instantiate()
 	lose_screen.final_score = score
+	lose_screen.final_time = time
 	add_child(lose_screen)
 	get_tree().paused = true

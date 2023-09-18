@@ -135,9 +135,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -40.0
-offset_top = -16.0
+offset_top = -28.0
 offset_right = 40.0
-offset_bottom = 16.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 2
@@ -162,6 +162,16 @@ text = "Record:"
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
+horizontal_alignment = 2
+
+[node name="TimeLabel" type="Label" parent="ScoreBoard"]
+layout_mode = 2
+text = "Time:"
+
+[node name="TimeCounter" type="Label" parent="ScoreBoard"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0:00:00"
 horizontal_alignment = 2
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
