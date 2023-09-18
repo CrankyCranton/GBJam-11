@@ -12,7 +12,10 @@ signal died(score: int, time: int)
 			await ready
 		health_bar.max_value = max_hp
 
-var trash := 0
+var trash := 0:
+	set(value):
+		trash = value
+		score_counter.text = str(trash)
 var start_time := Time.get_ticks_msec()
 
 @onready var hp := max_hp:
@@ -25,6 +28,7 @@ var start_time := Time.get_ticks_msec()
 		if hp <= 0:
 			die()
 @onready var health_bar: TextureProgressBar = $HealthBar
+@onready var score_counter: Label = $ScoreCounter
 
 
 func die() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cer5fnwmxtbty"]
+[gd_scene load_steps=9 format=3 uid="uid://cer5fnwmxtbty"]
 
 [ext_resource type="Script" path="res://scripts/mothership.gd" id="1_6sqar"]
 [ext_resource type="Texture2D" uid="uid://ciysm4guik70h" path="res://assets/background/ship_no_background.png" id="2_fw1cn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c600j5jqarclx" path="res://assets/graphics/health_bar_overlay.png" id="4_ejtbr"]
 [ext_resource type="PackedScene" uid="uid://b17woglnp0wm" path="res://scenes/hook.tscn" id="4_ukl0a"]
 [ext_resource type="Texture2D" uid="uid://vur4numyyctl" path="res://assets/graphics/health_bar_fg.png" id="5_1i3qf"]
+[ext_resource type="Theme" uid="uid://08b538gi4l1t" path="res://ui/theme.theme" id="7_4wi7k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1j35e"]
 size = Vector2(160, 28)
@@ -35,3 +36,9 @@ shape = SubResource("RectangleShape2D_1j35e")
 
 [node name="Hook" parent="." instance=ExtResource("4_ukl0a")]
 position = Vector2(80, 120)
+
+[node name="ScoreCounter" type="Label" parent="."]
+offset_right = 160.0
+offset_bottom = 8.0
+theme = ExtResource("7_4wi7k")
+horizontal_alignment = 1
