@@ -1,12 +1,39 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjfniwtodyhoi"]
+[gd_scene load_steps=13 format=3 uid="uid://cjfniwtodyhoi"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_coqks"]
-[ext_resource type="Texture2D" uid="uid://ch2k0x7tpgko3" path="res://icon.svg" id="2_tncch"]
+[ext_resource type="Texture2D" uid="uid://bfjwatq8d0s0y" path="res://assets/background/bg_objects/stars_spritesheet.png" id="3_5qiw3"]
 [ext_resource type="PackedScene" uid="uid://6h7rqv642saw" path="res://scenes/spawner.tscn" id="3_423aw"]
+[ext_resource type="Material" uid="uid://m2wn8h656c2y" path="res://assets/background/bg_objects/star_emitter.material" id="3_m3ff2"]
+[ext_resource type="Texture2D" uid="uid://baddb01j217f3" path="res://assets/background/bg_objects/planets.png" id="4_6lm4b"]
 [ext_resource type="PackedScene" uid="uid://bm6q176rb0p0q" path="res://scenes/trash.tscn" id="4_iijjm"]
 [ext_resource type="PackedScene" uid="uid://cer5fnwmxtbty" path="res://scenes/mothership.tscn" id="5_eogm8"]
 [ext_resource type="PackedScene" uid="uid://caa4vnyqh106v" path="res://scenes/obstacle.tscn" id="5_ykg2h"]
 [ext_resource type="PackedScene" uid="uid://s7vthiul18vr" path="res://scenes/ship.tscn" id="7_kg5qc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p7sj4"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5nkli"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wgmme"]
+emission_shape = 3
+emission_box_extents = Vector3(72, 0, 0)
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 8.0
+initial_velocity_max = 8.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+anim_offset_max = 1.0
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_coqks")
@@ -20,8 +47,25 @@ motion_mirroring = Vector2(0, 144)
 [node name="Background" type="Sprite2D" parent="Parallax/ParallaxLayer"]
 modulate = Color(0.1, 0.1, 0.1, 1)
 position = Vector2(80, 72)
-scale = Vector2(1.25, 1.125)
-texture = ExtResource("2_tncch")
+
+[node name="Particles" type="Node2D" parent="."]
+position = Vector2(80, -16)
+
+[node name="Stars" type="GPUParticles2D" parent="Particles"]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_p7sj4")
+amount = 32
+process_material = ExtResource("3_m3ff2")
+texture = ExtResource("3_5qiw3")
+lifetime = 30.0
+
+[node name="Planets" type="GPUParticles2D" parent="Particles"]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_5nkli")
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_wgmme")
+texture = ExtResource("4_6lm4b")
+lifetime = 30.0
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("add_to") instance=ExtResource("3_423aw")]
 spawn_list = {

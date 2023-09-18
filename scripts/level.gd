@@ -14,6 +14,8 @@ var y_pos := 0.0
 @onready var hook: Hook = $Mothership/Hook
 @onready var objects: Node2D = $Objects
 @onready var ship: Ship = $Ship
+@onready var stars: GPUParticles2D = %Stars
+@onready var planets: GPUParticles2D = %Planets
 
 
 func _init() -> void:
@@ -29,6 +31,10 @@ func move(delta: float) -> void:
 
 	var movement := move_speed * speed_factor * delta
 	y_pos += movement
+	stars.process_material.set("initial_velocity_min", move_speed * speed_factor / 2.0)
+	stars.process_material.set("initial_velocity_max", move_speed * speed_factor / 2.0)
+	planets.process_material.set("initial_velocity_min", move_speed * speed_factor / 5.0)
+	planets.process_material.set("initial_velocity_max", move_speed * speed_factor / 5.0)
 	parallax.scroll_offset.y += movement
 	for object in objects.get_children():
 		object.position.y += movement
