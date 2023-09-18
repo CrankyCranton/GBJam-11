@@ -64,15 +64,15 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 button_mask = 0
-texture_normal = ExtResource("8_e5rjw")
-texture_focused = ExtResource("7_5hrj5")
+texture_normal = ExtResource("7_5hrj5")
+texture_focused = ExtResource("8_e5rjw")
 
 [node name="StartButton" type="TextureButton" parent="Menu"]
 layout_mode = 2
 mouse_filter = 2
 button_mask = 0
-texture_normal = ExtResource("6_ylfdk")
-texture_focused = ExtResource("5_ewenu")
+texture_normal = ExtResource("5_ewenu")
+texture_focused = ExtResource("6_ylfdk")
 
 [connection signal="pressed" from="Menu/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="Menu/StartButton" to="." method="_on_start_button_pressed"]
