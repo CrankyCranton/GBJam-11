@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cer5fnwmxtbty"]
 
 [ext_resource type="Script" path="res://scripts/mothership.gd" id="1_6sqar"]
-[ext_resource type="Texture2D" uid="uid://ch2k0x7tpgko3" path="res://icon.svg" id="2_m4ale"]
+[ext_resource type="Texture2D" uid="uid://ciysm4guik70h" path="res://assets/background/ship_no_background.png" id="2_fw1cn"]
 [ext_resource type="Texture2D" uid="uid://c600j5jqarclx" path="res://assets/graphics/health_bar_overlay.png" id="4_ejtbr"]
 [ext_resource type="PackedScene" uid="uid://b17woglnp0wm" path="res://scenes/hook.tscn" id="4_ukl0a"]
 [ext_resource type="Texture2D" uid="uid://dngbn7ct0igjx" path="res://assets/graphics/health_bar_fill.png" id="5_bsft0"]
@@ -16,10 +16,8 @@ script = ExtResource("1_6sqar")
 max_hp = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.0470588, 0.313726, 0.4, 1)
-position = Vector2(80, 128)
-scale = Vector2(1.25, 0.25)
-texture = ExtResource("2_m4ale")
+position = Vector2(80, 72)
+texture = ExtResource("2_fw1cn")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 offset_top = 136.0

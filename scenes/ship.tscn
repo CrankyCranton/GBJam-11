@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://s7vthiul18vr"]
 
-[ext_resource type="Texture2D" uid="uid://bu1681cs4ejsq" path="res://assets/spaceship/spaceship_normal_1.png" id="1_5owak"]
+[ext_resource type="Texture2D" uid="uid://dq0hkiuutoj5p" path="res://assets/spaceship/adham's_ship_edited.png" id="1_hl4vr"]
 [ext_resource type="Script" path="res://scripts/ship.gd" id="2_5c5cx"]
 [ext_resource type="AudioStream" uid="uid://dxfnmr1pocx1w" path="res://assets/sfx/laser_shoot.wav" id="3_nw64l"]
 
 [node name="Ship" type="Sprite2D"]
-texture = ExtResource("1_5owak")
+texture = ExtResource("1_hl4vr")
 script = ExtResource("2_5c5cx")
 
 [node name="Barrel" type="Marker2D" parent="."]

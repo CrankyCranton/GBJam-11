@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/hook.gd" id="1_asl67"]
 [ext_resource type="Texture2D" uid="uid://b7grxwar18eti" path="res://assets/hook/medium_part.png" id="2_a5uic"]
-[ext_resource type="Texture2D" uid="uid://ch2k0x7tpgko3" path="res://icon.svg" id="2_bgadm"]
-[ext_resource type="Texture2D" uid="uid://ccs21egr6kuc8" path="res://assets/hook/top_part.png" id="3_a1rq6"]
+[ext_resource type="Texture2D" uid="uid://s7b4rxkomp17" path="res://assets/hook/hook_2_top_part.png" id="3_hk7cm"]
+[ext_resource type="Texture2D" uid="uid://6mtpi30l5mmf" path="res://assets/hook/hook_2_base.png" id="4_m1ysk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ijqy8"]
 radius = 12.0
@@ -34,10 +34,9 @@ stretch_mode = 1
 
 [node name="HookSprite" type="Sprite2D" parent="."]
 position = Vector2(1.19209e-07, 1.19209e-07)
-texture = ExtResource("3_a1rq6")
+texture = ExtResource("3_hk7cm")
+offset = Vector2(0, -7)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.0470588, 0.313726, 0.4, 1)
-position = Vector2(2.38419e-07, 1.19209e-07)
-scale = Vector2(0.0625, 0.1875)
-texture = ExtResource("2_bgadm")
+position = Vector2(0, -4)
+texture = ExtResource("4_m1ysk")
