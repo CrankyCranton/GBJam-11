@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt50nlenv7twk"
-path="res://.godot/imported/rock.png-35cf3ecd99b79ae098f71b3a44605194.ctex"
+uid="uid://dwky8s0tuj41h"
+path="res://.godot/imported/star_2.png-31510bcabe5f60643f67eae7f150f7e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/obsctacles_&_trash/rock.png"
-dest_files=["res://.godot/imported/rock.png-35cf3ecd99b79ae098f71b3a44605194.ctex"]
+source_file="res://assets/background/bg_objects/star_2.png"
+dest_files=["res://.godot/imported/star_2.png-31510bcabe5f60643f67eae7f150f7e2.ctex"]
 
 [params]
 

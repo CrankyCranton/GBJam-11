@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfe0hwwquxgg5"
-path="res://.godot/imported/ufo.png-d8ab0308c7574fa51293cb7b5d5e362a.ctex"
+uid="uid://7yg52xfsucxc"
+path="res://.godot/imported/regular_trash_2.png-d05cd17bf5853c20b85bbf55d5ad8b88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/obsctacles_&_trash/ufo.png"
-dest_files=["res://.godot/imported/ufo.png-d8ab0308c7574fa51293cb7b5d5e362a.ctex"]
+source_file="res://assets/trash/regular_trash_2.png"
+dest_files=["res://.godot/imported/regular_trash_2.png-d05cd17bf5853c20b85bbf55d5ad8b88.ctex"]
 
 [params]
 

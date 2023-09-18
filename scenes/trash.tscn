@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/trash.gd" id="1_gyp0y"]
 [ext_resource type="PackedScene" uid="uid://d2bssajhv58qp" path="res://scenes/object.tscn" id="1_ybr5r"]
-[ext_resource type="Texture2D" uid="uid://jgbnmo67aqgo" path="res://assets/obsctacles_&_trash/rock_2.png" id="3_8d3is"]
+[ext_resource type="Texture2D" uid="uid://jgbnmo67aqgo" path="res://assets/obstacles/rock_2.png" id="3_8d3is"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j0hus"]
 radius = 8.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jgbnmo67aqgo"
-path="res://.godot/imported/rock_2.png-153df50c448594cddb7d9cdd0e4ecfd1.ctex"
+uid="uid://tyqivgc3yd81"
+path="res://.godot/imported/text_box.png-7b78d797ce4aa0ce8e60e95865e58463.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/obsctacles_&_trash/rock_2.png"
-dest_files=["res://.godot/imported/rock_2.png-153df50c448594cddb7d9cdd0e4ecfd1.ctex"]
+source_file="res://assets/graphics/text_box.png"
+dest_files=["res://.godot/imported/text_box.png-7b78d797ce4aa0ce8e60e95865e58463.ctex"]
 
 [params]
 
