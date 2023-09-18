@@ -52,7 +52,9 @@ animations = [{
 }]
 
 [node name="BulletHitEffect" type="AnimatedSprite2D"]
+top_level = true
 sprite_frames = SubResource("SpriteFrames_un43l")
+animation = &"explode"
 autoplay = "explode"
 script = ExtResource("11_bivdf")
 

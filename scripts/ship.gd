@@ -1,6 +1,8 @@
 class_name Ship extends Sprite2D
 
 
+signal moved_both_ways
+
 const BULLET := preload("res://scenes/bullet.tscn")
 const INITIAL_MOVE_TIME := 0.15
 
@@ -12,6 +14,7 @@ const INITIAL_MOVE_TIME := 0.15
 var moving := false
 var screen_width: float = ProjectSettings.get_setting("display/window/size/viewport_width")
 var cooling := false
+var move_dirs: PackedInt64Array = []
 
 @onready var barrel: Marker2D = $Barrel
 @onready var shoot_sound: AudioStreamPlayer2D = %ShootSound
@@ -38,6 +41,12 @@ func move() -> void:
 		moving = true
 		await get_tree().create_timer(move_time).timeout
 		moving = false
+
+		if move_dirs.has(-1) and move_dirs.has(1) and not move_dirs.has(0):
+			moved_both_ways.emit()
+			move_dirs.append(0)
+		elif not move_dirs.has(input):
+			move_dirs.append(input)
 
 
 func shoot() -> void:

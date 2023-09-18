@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7hotf4l7r27w"]
+
+[ext_resource type="Theme" uid="uid://08b538gi4l1t" path="res://ui/theme.theme" id="1_7bjyc"]
+[ext_resource type="Script" path="res://scripts/text_box.gd" id="2_hegik"]
+
+[node name="TextBox" type="PanelContainer"]
+process_mode = 3
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_7bjyc")
+script = ExtResource("2_hegik")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+autowrap_mode = 1

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3wnotwbfqn7u"]
+
+[ext_resource type="PackedScene" uid="uid://cjfniwtodyhoi" path="res://scenes/level.tscn" id="1_vy8j6"]
+[ext_resource type="Script" path="res://scripts/tutorial_level.gd" id="2_0m8pv"]
+[ext_resource type="PackedScene" uid="uid://b7hotf4l7r27w" path="res://scenes/text_box.tscn" id="3_gvesg"]
+
+[node name="TutorialLevel" instance=ExtResource("1_vy8j6")]
+script = ExtResource("2_0m8pv")
+speed_factor_increment = null
+move_speed = null
+
+[node name="Background" parent="Parallax/ParallaxLayer" index="0"]
+modulate = Color(0.0941176, 0.105882, 0.141176, 1)
+
+[node name="HookTrigger" type="RayCast2D" parent="Mothership/Hook" index="3"]
+unique_name_in_owner = true
+enabled = false
+target_position = Vector2(0, -200)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="5"]
+
+[node name="TextBox" parent="CanvasLayer" index="0" instance=ExtResource("3_gvesg")]
+unique_name_in_owner = true
+
+[connection signal="finished" from="CanvasLayer/TextBox" to="." method="_on_text_box_finished"]
+
+[editable path="Mothership"]

@@ -123,8 +123,8 @@ offset_top = -22.0
 offset_right = 60.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "-Press Start to
-Try Again-"
+text = "-Start: Try Again-
+-Select: Main Menu-"
 horizontal_alignment = 1
 
 [node name="ScoreBoard" type="GridContainer" parent="."]

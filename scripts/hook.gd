@@ -3,7 +3,7 @@ class_name Hook extends ShapeCast2D
 
 signal anim_hooked
 
-const START_SPEED := TAU / 2.0
+const START_SPEED := TAU / 3.0
 
 @export var max_angle := 85.0
 @export var haul_time := 0.5

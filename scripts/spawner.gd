@@ -21,9 +21,10 @@ func _process(_delta: float) -> void:
 		spawn()
 
 
-func spawn() -> void:
+func spawn(scene: PackedScene = null) -> Node2D:
 	current_spawn_distance = randf_range(min_spawn_dinstance, max_spawn_distance)
-	var scene := pick_spawn()
+	if scene == null:
+		scene = pick_spawn()
 	var instance := scene.instantiate()
 	add_to.add_child(instance)
 	var raw_pos := min_pos.global_position.lerp(max_pos.global_position, randf())
@@ -31,6 +32,8 @@ func spawn() -> void:
 	instance.global_position = (raw_pos - cell_size / 2.0).snapped(cell_size) + cell_size / 2.0
 	last_spawn = instance
 	spawn_start_pos = instance.global_position
+
+	return instance
 
 
 func pick_spawn() -> PackedScene:

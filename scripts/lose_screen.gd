@@ -25,7 +25,10 @@ var accepting_input := false
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("start"):
 		get_tree().paused = false
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://scenes/level.tscn")
+	elif event.is_action_pressed("select"):
+		get_tree().paused = false
+		get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
 
 
 func load_record() -> int:

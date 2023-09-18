@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/trash.gd" id="1_gyp0y"]
 [ext_resource type="PackedScene" uid="uid://d2bssajhv58qp" path="res://scenes/object.tscn" id="1_ybr5r"]
-[ext_resource type="Texture2D" uid="uid://bt50nlenv7twk" path="res://assets/obsctacles_&_trash/rock.png" id="3_xu63a"]
+[ext_resource type="Texture2D" uid="uid://jgbnmo67aqgo" path="res://assets/obsctacles_&_trash/rock_2.png" id="3_8d3is"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j0hus"]
 radius = 8.0
@@ -14,8 +14,7 @@ value = 1
 health_value = 1
 
 [node name="Sprite2D" parent="." index="0"]
-modulate = Color(1, 0.501961, 0, 1)
-texture = ExtResource("3_xu63a")
+texture = ExtResource("3_8d3is")
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_j0hus")

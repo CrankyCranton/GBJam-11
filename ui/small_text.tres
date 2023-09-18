@@ -5,3 +5,4 @@
 [resource]
 font = ExtResource("1_rx3ne")
 font_size = 8
+font_color = Color(0.941176, 0.882353, 0.819608, 1)
