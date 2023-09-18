@@ -1,25 +1,18 @@
 class_name Trash extends FlyingObject
 
 
-@export var max_rot_speed := 45.0
 @export var value := 1
 @export var health_value := 1
 @export var trash_dir := "res://assets/trash/"
 
-var torque := 0.0
 var collected := false
 
 @onready var sprite: Sprite2D = $Sprite2D
 
 
 func _ready() -> void:
-	max_rot_speed = deg_to_rad(max_rot_speed)
-	torque = randf_range(-max_rot_speed, max_rot_speed)
+	super()
 	load_sprite()
-
-
-func _physics_process(delta: float) -> void:
-	rotate(torque * delta)
 
 
 func load_sprite() -> void:

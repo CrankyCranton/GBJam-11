@@ -8,7 +8,6 @@ radius = 8.0
 
 [node name="Trash" instance=ExtResource("1_ybr5r")]
 script = ExtResource("1_gyp0y")
-max_rot_speed = 45.0
 value = 1
 health_value = 1
 trash_dir = "res://assets/trash/"

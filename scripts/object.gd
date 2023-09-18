@@ -6,8 +6,20 @@ signal destroyed
 const DAMAGE_SOUND := preload("res://assets/sfx/hit_hurt.wav")
 
 @export var damage := 1
+@export var max_rot_speed := 45.0
+
+var torque := 0.0
 
 @onready var damage_sound: AudioStreamPlayer2D = $DamageSound
+
+
+func _ready() -> void:
+	max_rot_speed = deg_to_rad(max_rot_speed)
+	torque = randf_range(-max_rot_speed, max_rot_speed)
+
+
+func _physics_process(delta: float) -> void:
+	rotate(torque * delta)
 
 
 func destroy(attacker: Area2D) -> void:
