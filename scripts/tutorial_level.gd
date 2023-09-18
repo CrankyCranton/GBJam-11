@@ -11,7 +11,7 @@ var astroid: Obstacle = null
 
 func _ready() -> void:
 	spawner.set_process(false)
-	text_box.print_text("DPad to move.")
+	text_box.print_text("Use DPad to move.")
 
 
 func _physics_process(delta: float) -> void:
@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 	if hook_trigger.is_colliding() and hook_trigger.get_collider() is Trash:
 		text_box.print_text("Press B to collect trash.", "b")
 		hook_trigger.enabled = false
-
+		hook.set_process_input(true)
 
 
 func _on_text_box_finished() -> void:
@@ -28,15 +28,16 @@ func _on_text_box_finished() -> void:
 		1:
 			await ship.moved_both_ways
 			await get_tree().create_timer(2.0).timeout
-			text_box.print_text("Your galactic garbage truck is below.",
+			text_box.print_text("Your galactic garbage truck is at the bottom.",
 					"start", Control.PRESET_TOP_WIDE)
 		2:
-			spawner.spawn(preload("res://scenes/trash.tscn"))
-			await get_tree().create_timer(1.5).timeout
+			hook.set_process_input(false)
+			spawner.spawn(preload("res://scenes/trash.tscn")).collected = true
+			await get_tree().create_timer(1.0).timeout
 			hook_trigger.enabled = true
 		3:
 			await get_tree().create_timer(1.5).timeout
-			text_box.print_text("Beware: Grabbing stuff besides trash is like grabbing a porcipine.")
+			text_box.print_text("Beware: Grabbing stuff besides trash is like grabbing a porcupine.")
 		4:
 			astroid = spawner.spawn(preload("res://scenes/obstacle.tscn"))
 			await get_tree().create_timer(1.0).timeout

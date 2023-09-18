@@ -6,8 +6,6 @@
 
 [node name="TutorialLevel" instance=ExtResource("1_vy8j6")]
 script = ExtResource("2_0m8pv")
-speed_factor_increment = null
-move_speed = null
 
 [node name="Background" parent="Parallax/ParallaxLayer" index="0"]
 modulate = Color(0.0941176, 0.105882, 0.141176, 1)

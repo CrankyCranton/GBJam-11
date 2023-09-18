@@ -18,6 +18,7 @@ func _input(event: InputEvent) -> void:
 @warning_ignore("shadowed_variable")
 func print_text(message: String, continue_action := "start", location := PRESET_BOTTOM_WIDE) -> void:
 	get_tree().paused = true
+	set_process_input(false)
 	text.text = message + "\n-%s to continue-" % continue_action
 	self.continue_action = continue_action
 
@@ -27,3 +28,5 @@ func print_text(message: String, continue_action := "start", location := PRESET_
 
 	await get_tree().process_frame
 	set_anchors_and_offsets_preset(location)
+	await get_tree().create_timer(1.0).timeout
+	set_process_input(true)
