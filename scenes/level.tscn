@@ -10,12 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://caa4vnyqh106v" path="res://scenes/obstacle.tscn" id="5_ykg2h"]
 [ext_resource type="PackedScene" uid="uid://s7vthiul18vr" path="res://scenes/ship.tscn" id="7_kg5qc"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p7sj4"]
-particles_animation = true
-particles_anim_h_frames = 5
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5nkli"]
 particles_animation = true
 particles_anim_h_frames = 2
@@ -35,6 +29,12 @@ orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 anim_offset_max = 1.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p7sj4"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_coqks")
 
@@ -51,20 +51,21 @@ position = Vector2(80, 72)
 [node name="Particles" type="Node2D" parent="."]
 position = Vector2(80, -16)
 
+[node name="Planets" type="GPUParticles2D" parent="Particles"]
+unique_name_in_owner = true
+visible = false
+material = SubResource("CanvasItemMaterial_5nkli")
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_wgmme")
+texture = ExtResource("4_6lm4b")
+lifetime = 30.0
+
 [node name="Stars" type="GPUParticles2D" parent="Particles"]
 unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_p7sj4")
 amount = 32
 process_material = ExtResource("3_m3ff2")
 texture = ExtResource("3_5qiw3")
-lifetime = 30.0
-
-[node name="Planets" type="GPUParticles2D" parent="Particles"]
-unique_name_in_owner = true
-material = SubResource("CanvasItemMaterial_5nkli")
-amount = 1
-process_material = SubResource("ParticleProcessMaterial_wgmme")
-texture = ExtResource("4_6lm4b")
 lifetime = 30.0
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("add_to") instance=ExtResource("3_423aw")]
@@ -74,9 +75,9 @@ ExtResource("5_ykg2h"): 1
 }
 add_to = NodePath("../Objects")
 
-[node name="Objects" type="Node2D" parent="."]
-
 [node name="Mothership" parent="." instance=ExtResource("5_eogm8")]
+
+[node name="Objects" type="Node2D" parent="."]
 
 [node name="Ship" parent="." instance=ExtResource("7_kg5qc")]
 position = Vector2(88, 88)
