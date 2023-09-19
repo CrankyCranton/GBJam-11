@@ -34,3 +34,4 @@ var start_time := Time.get_ticks_msec()
 func die() -> void:
 	@warning_ignore("integer_division")
 	died.emit(trash, (Time.get_ticks_msec() - start_time) / 1000)
+	$Explosions.emitting = true
