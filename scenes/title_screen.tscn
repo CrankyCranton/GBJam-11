@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnkrumispeaw5"]
+[gd_scene load_steps=10 format=3 uid="uid://cnkrumispeaw5"]
 
 [ext_resource type="Theme" uid="uid://08b538gi4l1t" path="res://ui/theme.theme" id="1_q7gig"]
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="2_ewtvy"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dmxqu2j1y5loo" path="res://assets/graphics/start_selected.png" id="6_ylfdk"]
 [ext_resource type="Texture2D" uid="uid://g8afiqr5usl1" path="res://assets/graphics/tutorial.png" id="7_5hrj5"]
 [ext_resource type="Texture2D" uid="uid://cooi1reix3cwq" path="res://assets/graphics/tutorial_selected.png" id="8_e5rjw"]
+[ext_resource type="AudioStream" uid="uid://cfskgl0cggd3g" path="res://assets/music/Title.ogg" id="9_8jct0"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -73,6 +74,10 @@ mouse_filter = 2
 button_mask = 0
 texture_normal = ExtResource("5_ewenu")
 texture_focused = ExtResource("6_ylfdk")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_8jct0")
+autoplay = true
 
 [connection signal="pressed" from="Menu/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="Menu/StartButton" to="." method="_on_start_button_pressed"]

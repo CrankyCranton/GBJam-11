@@ -45,6 +45,13 @@ font_data_dynamic={
 "script_support": {},
 "subpixel_positioning": 1
 }
+oggvorbisstr={
+"bar_beats": 4,
+"beat_count": 0,
+"bpm": 0.0,
+"loop": true,
+"loop_offset": 0.0
+}
 
 [input]
 

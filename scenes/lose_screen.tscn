@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cn638kqmlu0sn"]
+[gd_scene load_steps=9 format=3 uid="uid://cn638kqmlu0sn"]
 
 [ext_resource type="Theme" uid="uid://08b538gi4l1t" path="res://ui/theme.theme" id="1_tmf6t"]
 [ext_resource type="LabelSettings" uid="uid://c52euoq5c832g" path="res://ui/title.tres" id="2_8r5qe"]
 [ext_resource type="Script" path="res://scripts/lose_screen.gd" id="2_r33je"]
+[ext_resource type="AudioStream" uid="uid://dam88qixg8x0e" path="res://assets/music/Death.ogg" id="4_x5k1o"]
 
 [sub_resource type="Animation" id="Animation_ncyfh"]
 length = 0.001
@@ -173,5 +174,9 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "0:00:00"
 horizontal_alignment = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_x5k1o")
+autoplay = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
