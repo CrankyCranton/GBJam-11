@@ -35,3 +35,4 @@ func die() -> void:
 	@warning_ignore("integer_division")
 	died.emit(trash, (Time.get_ticks_msec() - start_time) / 1000)
 	$Explosions.emitting = true
+	$BigExplosions.emitting = true
