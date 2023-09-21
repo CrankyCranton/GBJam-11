@@ -8,7 +8,7 @@ const LOSE_SCREEN := preload("res://scenes/lose_screen.tscn")
 
 var additional_object_queue := [
 	[preload("res://scenes/obstacle_tough.tscn"), 4],
-	[preload("res://scenes/ufo.tscn"), 2],
+	[preload("res://scenes/ufo.tscn"), 1],
 ]
 var speed_factor := 1.0
 # Could be used in scoring
@@ -57,6 +57,8 @@ func _on_mothership_died(score: int, time: int) -> void:
 	lose_screen.final_time = time
 	add_child(lose_screen)
 	get_tree().paused = true
+	var tween := $Music.create_tween()
+	tween.tween_property($Music, "volume_db", -80, 2.0)
 
 
 func _on_upgrade_timer_timeout() -> void:

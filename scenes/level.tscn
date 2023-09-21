@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjfniwtodyhoi"]
+[gd_scene load_steps=15 format=3 uid="uid://cjfniwtodyhoi"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_coqks"]
 [ext_resource type="Texture2D" uid="uid://bfjwatq8d0s0y" path="res://assets/background/bg_objects/stars_spritesheet.png" id="3_5qiw3"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://caa4vnyqh106v" path="res://scenes/obstacle.tscn" id="5_ykg2h"]
 [ext_resource type="PackedScene" uid="uid://s7vthiul18vr" path="res://scenes/ship.tscn" id="7_kg5qc"]
 [ext_resource type="PackedScene" uid="uid://kv41fbsf0x15" path="res://scenes/pause_screen.tscn" id="10_uaq7f"]
+[ext_resource type="AudioStream" uid="uid://cdmo4s4076r75" path="res://assets/music/Game Music.ogg" id="11_kttm2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5nkli"]
 particles_animation = true
@@ -88,6 +89,11 @@ position = Vector2(88, 88)
 [node name="UpgradeTimer" type="Timer" parent="."]
 wait_time = 30.0
 autostart = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("11_kttm2")
+autoplay = true
 
 [connection signal="died" from="Mothership" to="." method="_on_mothership_died"]
 [connection signal="timeout" from="UpgradeTimer" to="." method="_on_upgrade_timer_timeout"]

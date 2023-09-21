@@ -19,4 +19,8 @@ func _on_area_entered(area: Area2D) -> void:
 		queue_free()
 	elif area is Mothership:
 		area.hp -= 1
+		var hit_effect: BulletHitEffect = preload("res://scenes/bullet_hit_effect.tscn").instantiate()
+		get_tree().current_scene.call_deferred("add_child", hit_effect)
+		await hit_effect.ready
+		hit_effect.global_position = global_position
 		queue_free()
