@@ -2,6 +2,7 @@ class_name TitleScreen extends Control
 
 
 func _ready() -> void:
+	get_tree().paused = false
 	#$Title.text = ProjectSettings.get_setting("application/config/name")
 	%TutorialButton.grab_focus()
 

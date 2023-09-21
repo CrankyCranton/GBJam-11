@@ -27,14 +27,14 @@ func _physics_process(delta: float) -> void:
 	rotate(torque * delta)
 
 
-func destroy(attacker: Area2D) -> void:
+func destroy(attacker: Area2D, damage := 1) -> void:
 	if attacker is FlyingObject:
 		return
 
 	if attacker is Mothership:
 		deal_damage(attacker)
 
-	hp -= 1
+	hp -= damage
 
 
 func deal_damage(mothership: Mothership) -> void:
@@ -56,7 +56,10 @@ func play_sound() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area is Bullet and area.ufo_bullet:
-		return
+	if area is Bullet:
+		if area.ufo_bullet:
+			return
+		destroy(area)
+	else:
+		destroy(area, hp)
 	spawn_hit_effect()
-	destroy(area)
