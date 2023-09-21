@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnkrumispeaw5"]
+[gd_scene load_steps=15 format=3 uid="uid://cnkrumispeaw5"]
 
 [ext_resource type="Theme" uid="uid://08b538gi4l1t" path="res://ui/theme.theme" id="1_q7gig"]
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="2_ewtvy"]
@@ -9,6 +9,23 @@
 [ext_resource type="Texture2D" uid="uid://g8afiqr5usl1" path="res://assets/graphics/tutorial.png" id="7_5hrj5"]
 [ext_resource type="Texture2D" uid="uid://cooi1reix3cwq" path="res://assets/graphics/tutorial_selected.png" id="8_e5rjw"]
 [ext_resource type="AudioStream" uid="uid://cfskgl0cggd3g" path="res://assets/music/Title.ogg" id="9_8jct0"]
+[ext_resource type="Texture2D" uid="uid://d054qk3f1x8wg" path="res://assets/background/bg_objects/planet.png" id="10_dkb1n"]
+[ext_resource type="Texture2D" uid="uid://6qb33fp56h43" path="res://assets/background/bg_objects/big_star.png" id="11_8nhgy"]
+[ext_resource type="Texture2D" uid="uid://bfjwatq8d0s0y" path="res://assets/background/bg_objects/stars_spritesheet.png" id="12_awkeu"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_em5qi"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s7xn8"]
+emission_shape = 3
+emission_box_extents = Vector3(80, 72, 0)
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -78,6 +95,40 @@ texture_focused = ExtResource("6_ylfdk")
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_8jct0")
 autoplay = true
+
+[node name="Decore" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Planet" type="TextureRect" parent="Decore"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 84.0
+offset_right = 38.0
+offset_bottom = 116.0
+texture = ExtResource("10_dkb1n")
+
+[node name="BigStar" type="TextureRect" parent="Decore"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 37.0
+offset_right = 142.0
+offset_bottom = 69.0
+texture = ExtResource("11_8nhgy")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_em5qi")
+position = Vector2(80, 72)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_s7xn8")
+texture = ExtResource("12_awkeu")
+lifetime = 60.0
+preprocess = 60.0
+visibility_rect = Rect2(0, 0, 0, 0)
 
 [connection signal="pressed" from="Menu/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="Menu/StartButton" to="." method="_on_start_button_pressed"]
