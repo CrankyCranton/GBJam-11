@@ -5,7 +5,6 @@ var tutorial_index := 0
 var astroid: Obstacle = null
 
 @onready var text_box: TextBox = %TextBox
-@onready var spawner: Spawner = $Spawner
 @onready var hook_trigger: RayCast2D = %HookTrigger
 
 

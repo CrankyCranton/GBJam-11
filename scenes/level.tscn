@@ -71,8 +71,8 @@ lifetime = 30.0
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("add_to") instance=ExtResource("3_423aw")]
 spawn_list = {
-ExtResource("4_iijjm"): 2,
-ExtResource("5_ykg2h"): 1
+ExtResource("4_iijjm"): 20,
+ExtResource("5_ykg2h"): 10
 }
 add_to = NodePath("../Objects")
 
@@ -85,4 +85,9 @@ position = Vector2(88, 88)
 
 [node name="PauseScreen" parent="." instance=ExtResource("10_uaq7f")]
 
+[node name="UpgradeTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
 [connection signal="died" from="Mothership" to="." method="_on_mothership_died"]
+[connection signal="timeout" from="UpgradeTimer" to="." method="_on_upgrade_timer_timeout"]
