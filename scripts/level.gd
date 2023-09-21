@@ -6,6 +6,10 @@ const LOSE_SCREEN := preload("res://scenes/lose_screen.tscn")
 @export var speed_factor_increment := 0.01
 @export var move_speed := 32.0
 
+var additional_object_queue := [
+	[preload("res://scenes/obstacle_tough.tscn"), 4],
+	[preload("res://scenes/ufo.tscn"), 1],
+]
 var speed_factor := 1.0
 # Could be used in scoring
 var y_pos := 0.0
@@ -16,6 +20,7 @@ var y_pos := 0.0
 @onready var ship: Ship = $Ship
 @onready var stars: GPUParticles2D = %Stars
 @onready var planets: GPUParticles2D = %Planets
+@onready var spawner: Spawner = $Spawner
 
 
 func _init() -> void:
@@ -37,7 +42,10 @@ func move(delta: float) -> void:
 	planets.process_material.set("initial_velocity_max", move_speed * speed_factor / 5.0)
 	parallax.scroll_offset.y += movement
 	for object in objects.get_children():
-		object.position.y += movement
+		if object is UFO:
+			object.speed_multiplier = speed_factor
+		else:
+			object.position.y += movement * object.speed
 
 	hook.speed = Hook.START_SPEED * speed_factor
 	ship.move_time = Ship.INITIAL_MOVE_TIME / speed_factor
@@ -49,3 +57,12 @@ func _on_mothership_died(score: int, time: int) -> void:
 	lose_screen.final_time = time
 	add_child(lose_screen)
 	get_tree().paused = true
+	var tween := $Music.create_tween()
+	tween.tween_property($Music, "volume_db", -80, 2.0)
+
+
+func _on_upgrade_timer_timeout() -> void:
+	if additional_object_queue.size() <= 0:
+		return
+	var new_object: Array = additional_object_queue.pop_front()
+	spawner.spawn_list[new_object[0]] = new_object[1]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dglpmx0hruxhf"]
+
+[ext_resource type="PackedScene" uid="uid://caa4vnyqh106v" path="res://scenes/obstacle.tscn" id="1_w2rlh"]
+[ext_resource type="Texture2D" uid="uid://b24sstp22v5qp" path="res://assets/obstacles/rock_2_blue.png" id="2_eosl2"]
+
+[node name="ObstacleTough" instance=ExtResource("1_w2rlh")]
+damage = 3
+hp = 2
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_eosl2")

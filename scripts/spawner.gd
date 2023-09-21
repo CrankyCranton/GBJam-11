@@ -30,8 +30,9 @@ func spawn(scene: PackedScene = null) -> Node2D:
 	var raw_pos := min_pos.global_position.lerp(max_pos.global_position, randf())
 	var cell_size := Vector2.ONE * 16.0
 	instance.global_position = (raw_pos - cell_size / 2.0).snapped(cell_size) + cell_size / 2.0
-	last_spawn = instance
-	spawn_start_pos = instance.global_position
+	if not instance is UFO:
+		last_spawn = instance
+		spawn_start_pos = instance.global_position
 
 	return instance
 

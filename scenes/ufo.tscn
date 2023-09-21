@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://caxmd8m2fnjwb"]
+
+[ext_resource type="PackedScene" uid="uid://d2bssajhv58qp" path="res://scenes/object.tscn" id="1_rlm7w"]
+[ext_resource type="Script" path="res://scripts/ufo.gd" id="2_0sawj"]
+[ext_resource type="Texture2D" uid="uid://bfe0hwwquxgg5" path="res://assets/obstacles/ufo.png" id="2_c2b45"]
+[ext_resource type="AudioStream" uid="uid://cw4aie6r71rcn" path="res://assets/sfx/shoot.wav" id="4_3xxgk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rsejf"]
+radius = 8.0
+
+[node name="UFO" groups=["ufos"] instance=ExtResource("1_rlm7w")]
+script = ExtResource("2_0sawj")
+strafe_speed = 16.0
+speed = 0.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_c2b45")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_rsejf")
+
+[node name="Barrel" type="Marker2D" parent="." index="3"]
+position = Vector2(0, 4)
+gizmo_extents = 4.0
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="Barrel" index="0"]
+unique_name_in_owner = true
+stream = ExtResource("4_3xxgk")
+max_distance = 512.0
+
+[node name="ShootTimer" type="Timer" parent="." index="4"]
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
