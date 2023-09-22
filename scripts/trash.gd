@@ -1,9 +1,18 @@
 class_name Trash extends FlyingObject
 
 
+const TRASH_SPRITES := [
+	preload("res://assets/trash/engine_trash.png"),
+	preload("res://assets/trash/panel.png"),
+	preload("res://assets/trash/RandomPiece1.png"),
+	preload("res://assets/trash/regular_trash_1.png"),
+	preload("res://assets/trash/regular_trash_2.png"),
+	preload("res://assets/trash/wing_trash_left.png"),
+	preload("res://assets/trash/wing_trash_right.png"),
+]
+
 @export var value := 1
 @export var health_value := 1
-@export var trash_dir := "res://assets/trash/"
 
 var collected := false
 
@@ -16,11 +25,7 @@ func _ready() -> void:
 
 
 func load_sprite() -> void:
-	var sprites := Array(DirAccess.get_files_at(trash_dir)).filter(
-		func(value: String):
-			return value.ends_with(".png")
-	)
-	sprite.texture = load(trash_dir + sprites.pick_random())
+	sprite.texture = TRASH_SPRITES.pick_random()
 
 
 func deal_damage(mothership: Mothership) -> void:

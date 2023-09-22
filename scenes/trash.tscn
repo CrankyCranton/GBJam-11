@@ -10,7 +10,6 @@ radius = 8.0
 script = ExtResource("1_gyp0y")
 value = 1
 health_value = 1
-trash_dir = "res://assets/trash/"
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_j0hus")
