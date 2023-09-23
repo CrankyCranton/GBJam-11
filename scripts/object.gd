@@ -1,7 +1,7 @@
 class_name FlyingObject extends Area2D
 
 
-signal destroyed
+signal destroyed(by_player: bool)
 
 @export var damage := 1
 @export var max_rot_speed := 45.0
@@ -10,7 +10,6 @@ signal destroyed
 	set(value):
 		hp = value
 		if hp <= 0:
-			destroyed.emit()
 			queue_free()
 
 var torque := 0.0
@@ -27,6 +26,7 @@ func _physics_process(delta: float) -> void:
 	rotate(torque * delta)
 
 
+@warning_ignore("shadowed_variable")
 func destroy(attacker: Area2D, damage := 1) -> void:
 	if attacker is FlyingObject:
 		return
@@ -63,3 +63,6 @@ func _on_area_entered(area: Area2D) -> void:
 	else:
 		destroy(area, hp)
 	spawn_hit_effect()
+
+	if hp <= 0:
+		destroyed.emit(area is Bullet and not self is Trash)

@@ -21,6 +21,14 @@ var y_pos := 0.0
 @onready var stars: GPUParticles2D = %Stars
 @onready var planets: GPUParticles2D = %Planets
 @onready var spawner: Spawner = $Spawner
+@onready var upgrade_timer: Timer = $UpgradeTimer
+@onready var upgrading := true:
+	set(value):
+		upgrading = value
+		if upgrading:
+			upgrade_timer.start()
+		else:
+			upgrade_timer.stop()
 
 
 func _init() -> void:
@@ -32,7 +40,8 @@ func _physics_process(delta: float) -> void:
 
 
 func move(delta: float) -> void:
-	speed_factor += speed_factor_increment * delta
+	if upgrading:
+		speed_factor += speed_factor_increment * delta
 
 	var movement := move_speed * speed_factor * delta
 	y_pos += movement

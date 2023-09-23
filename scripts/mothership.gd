@@ -17,9 +17,13 @@ var trash := 0:
 		trash = value
 		score_counter.text = str(trash)
 var start_time := Time.get_ticks_msec()
+var immune := false
 
 @onready var hp := max_hp:
 	set(value):
+		if immune:
+			return
+
 		hp = min(value, max_hp)
 		if not is_node_ready():
 			await ready

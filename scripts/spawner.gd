@@ -26,7 +26,8 @@ func spawn(scene: PackedScene = null) -> Node2D:
 	if scene == null:
 		scene = pick_spawn()
 	var instance := scene.instantiate()
-	add_to.add_child(instance)
+	add_to.call_deferred("add_child", instance)
+	await instance.ready
 	var raw_pos := min_pos.global_position.lerp(max_pos.global_position, randf())
 	var cell_size := Vector2.ONE * 16.0
 	instance.global_position = (raw_pos - cell_size / 2.0).snapped(cell_size) + cell_size / 2.0

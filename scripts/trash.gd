@@ -40,5 +40,9 @@ func _on_area_entered(area: Area2D) -> void:
 	if collected:
 		if area is Mothership:
 			destroy(area)
+			if hp <= 0:
+				destroyed.emit(true)
 	else:
 		super(area)
+		if hp <= 0:
+			destroyed.emit(false)
