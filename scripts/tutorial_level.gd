@@ -28,6 +28,11 @@ func _physics_process(delta: float) -> void:
 		hook.set_process_input(true)
 
 
+func _on_mothership_died(score: int, time: int) -> void:
+	super(score, time)
+	Data.save_data({first_time = false})
+
+
 func _on_text_box_finished() -> void:
 	tutorial_index += 1
 	match tutorial_index:
@@ -79,7 +84,7 @@ func _on_text_box_finished() -> void:
 				await astroid.destroyed
 
 			await get_tree().create_timer(4.0, false).timeout
-			text_box.print_text("Now your all set to clean the universe!")
+			text_box.print_text("Now you're all set to clean the universe!")
 		8:
 			mothership.immune = false
 			spawner.set_process(true)
