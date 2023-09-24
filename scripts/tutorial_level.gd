@@ -30,7 +30,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_mothership_died(score: int, time: int) -> void:
 	super(score, time)
-	Data.save_data({first_time = false})
+	Data.data.first_time = false
+	Data.save_data(Data.data)
 
 
 func _on_text_box_finished() -> void:
@@ -65,7 +66,7 @@ func _on_text_box_finished() -> void:
 			await get_tree().create_timer(2.0, false).timeout
 			astroid = await spawner.spawn(OBSTACLE)
 			await get_tree().create_timer(0.5, false).timeout
-			text_box.print_text("An astroid! Don't let it hit your garbage truck.")
+			text_box.print_text("An asteroid! Don't let it hit your garbage truck.")
 		5:
 			text_box.print_text("Press A to shoot it down.")
 		6:

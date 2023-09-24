@@ -2,7 +2,7 @@ class_name TitleScreen extends Control
 
 
 const LEVEL := "res://scenes/level.tscn"
-const CUTSCENE := "res://scenes/cutscene.tscn"
+const CUTSCENE := "res://scenes/cutscene_2.tscn"
 
 @onready var tutorial_button: TextureButton = %TutorialButton
 

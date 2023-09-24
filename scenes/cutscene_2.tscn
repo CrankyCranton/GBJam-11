@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnwofph3fmvlw"]
+
+[ext_resource type="Script" path="res://scripts/cutscene_2.gd" id="1_6dqaj"]
+[ext_resource type="Texture2D" uid="uid://dosv10f5eupqu" path="res://assets/cutscenes/cutscene.png" id="1_22ydt"]
+[ext_resource type="Theme" uid="uid://08b538gi4l1t" path="res://ui/theme.theme" id="3_vf4bl"]
+
+[node name="Cutscene2" type="Sprite2D"]
+position = Vector2(80, 72)
+texture = ExtResource("1_22ydt")
+hframes = 7
+script = ExtResource("1_6dqaj")
+
+[node name="NextPrompt" type="Label" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -83.0
+offset_right = -80.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_vf4bl")
+theme_override_colors/font_outline_color = Color(0.85098, 0.592157, 0.254902, 1)
+theme_override_constants/outline_size = 3
+text = "-Start to contine-"
+horizontal_alignment = 1
