@@ -15,6 +15,7 @@ var speed := START_SPEED
 
 @onready var chain: TextureRect = $Chain
 @onready var hook_sprite: Sprite2D = $HookSprite
+@onready var launch_sound: AudioStreamPlayer = $LaunchSound
 
 
 func _ready() -> void:
@@ -37,6 +38,8 @@ func _physics_process(delta: float) -> void:
 
 
 func launch() -> void:
+	launch_sound.play()
+
 	hauling = true
 	enabled = true
 	force_shapecast_update()
